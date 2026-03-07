@@ -1,4 +1,4 @@
-const { CustomClient } = require('./classes/customClient.js');
+const { CustomClient } = require('./lib/functions/customClient.js');
 const { AppEvents } = require('./lib/functions/application-ecs-loader.js');
 const { GatewayIntentBits } = require('discord.js');
 

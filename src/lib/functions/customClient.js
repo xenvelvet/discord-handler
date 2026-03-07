@@ -1,4 +1,4 @@
-const { developerIds, clientToken } = require('../lib/config.json');
+const { developerIds, clientToken } = require('../config.json');
 const { Client, Collection, version } = require('discord.js');
 
 module.exports.CustomClient = class CustomClient extends Client {
