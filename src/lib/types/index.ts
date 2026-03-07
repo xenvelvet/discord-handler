@@ -1,5 +1,5 @@
 import { PermissionsString, ApplicationCommandType, ChatInputApplicationCommandData, MessageApplicationCommandData, UserApplicationCommandData, ClientEvents, ChatInputCommandInteraction, UserContextMenuCommandInteraction, MessageContextMenuCommandInteraction, AutocompleteInteraction, Message } from 'discord.js';
-import { CustomClient } from '../../classes/customClient.js';
+import { CustomClient } from '../functions/customClient.js';
 
 interface EventData<EventName extends keyof ClientEvents> {
   name: string; event: EventName; once?: boolean; execute(_client?: CustomClient, ...args: ClientEvents[EventName]): Promise<void>;
