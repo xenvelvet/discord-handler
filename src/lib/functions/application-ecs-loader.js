@@ -12,7 +12,7 @@ async function AppEvents(client) {
     const event = require(file);
 
     if (!event.event || !validEvents.includes(event.event)) {
-      logger.Warn(file, `event Name is either invalid or missing. Please provide a valid name.`);
+      logger.Warn(file, `Event Name is either invalid or missing. Please provide a valid Name.`);
       continue;
     }
 
@@ -33,7 +33,7 @@ async function AppMessages(client) {
     const command = require(file);
 
     if (!command.alias || command.alias.length === 0 || (command.alias.some((alias) => alias === ''))) {
-      logger.Warn(file, `missing command alias. Please provide a valid command alias to proceed.`);
+      logger.Warn(file, `Missing command alias. Please provide a valid command alias to proceed.`);
       continue;
     }
 
@@ -54,22 +54,22 @@ async function AppSlashCommands(client) {
     const command = require(file);
 
     if (!command.name) {
-      logger.Warn(file, 'missing command name. Please provide a valid command to proceed.');
+      logger.Warn(file, 'Missing command name. Please provide a valid command to proceed.');
       continue;
     }
 
     if (command.type == ChatInput && !command.description) {
-      logger.Warn(file, 'a command requires a description. Please provide a description for your commands name.');
+      logger.Warn(file, 'A command requires a description. Please provide a description for your commands name.');
       continue;
     }
 
     if ([User, Message].includes(command.type) && command.description) {
-      logger.Warn(file, 'context commands do not support descriptions.');
+      logger.Warn(file, 'Context commands do not support descriptions.');
       continue;
     }
 
     if (typeof command.execute !== 'function') {
-      logger.Warn(file, `command file ${command.name} does not export "execute" as a function.`);
+      logger.Warn(file, `Command file ${command.name} does not export "execute" as a function.`);
       continue;
     }
 
@@ -82,7 +82,7 @@ async function AppSlashCommands(client) {
     logger.Info(command.name, `Loaded.`);
   }
 
-  client.application.commands.set(CommandsArray);
+  // client.application.commands.set(CommandsArray);
 };
 
 module.exports = {

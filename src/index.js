@@ -4,11 +4,9 @@ const { GatewayIntentBits } = require('discord.js');
 
 const client = new CustomClient({
     intents: [
-        GatewayIntentBits.Guilds,
-        GatewayIntentBits.GuildMessages,
-        GatewayIntentBits.MessageContent,
+        GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent,
     ],
-    failIfNotExists: false
+    failIfNotExists: false, 
 });
 
 AppEvents(client);
